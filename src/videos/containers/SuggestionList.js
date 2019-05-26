@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { FlatList } from 'react-native';
 
-import Layout from '../components/suggestion-list-layout';
-import Empty from '../components/empty';
-import Separator from '../components/vertical-separator';
-import Suggestion from '../components/suggestion';
+import Layout from '../components/SuggestionListLayout';
+import Empty from '../components/Empty';
+import Separator from '../../sections/components/VerticalSeparator';
+import Suggestion from '../components/Suggestion';
 
 class SuggestionList extends Component {
   keyExtractor = item => item.id.toString();

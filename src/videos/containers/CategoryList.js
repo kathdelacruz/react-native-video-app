@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { FlatList } from 'react-native';
-import Layout from '../components/category-list-layout';
-import Empty from '../components/empty';
-import Separator from '../../sections/components/horizontal-separator';
-import Category from '../components/category';
+import Layout from '../components/CategoryListLayout';
+import Empty from '../components/Empty';
+import Separator from '../../sections/components/HorizontalSeparator';
+import Category from '../components/Category';
 
 class CategoryList extends Component {
   keyExtractor = item => item.id.toString();
