@@ -5,8 +5,7 @@ import {
 } from 'react-native';
 
 const HorizontalSeparator = () => (
-  <View style={styles.separator}>
-  </View>
+  <View style={styles.separator} />
 );
 
 const styles = StyleSheet.create({
