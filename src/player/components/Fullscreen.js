@@ -1,17 +1,14 @@
 import React from 'react';
 import {
   TouchableHighlight,
-  TouchableOpacity,
-  TouchableWithoutFeedback,
   StyleSheet,
   Image,
 } from 'react-native';
 
-const PlayPause = (props) => (
+const Fullscreen = (props) => (
   <TouchableHighlight
     onPress={props.onPress}
     style={styles.container}
-    // underlayColor="red"
     hitSlop={{
       left: 5,
       top: 5,
@@ -19,11 +16,7 @@ const PlayPause = (props) => (
       right: 5,
     }}
   >
-    {
-      props.paused
-      ? <Image source={require('../../../assets/play-button.png')} style={styles.button} />
-      : <Image source={require('../../../assets/pause-button.png')} style={styles.button} />
-    }
+    <Image source={require('../../../assets/fullscreen-button.png')} style={styles.button} />
   </TouchableHighlight>
 );
 
@@ -36,9 +29,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     paddingHorizontal: 10,
     height: 25,
-    marginRight: 10,
     marginVertical: 5,
   },
 });
 
-export default PlayPause;
+export default Fullscreen;

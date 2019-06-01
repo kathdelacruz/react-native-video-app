@@ -9,11 +9,16 @@ import {
 import Layout from '../components/PlayerLayout';
 import ControlLayout from '../components/ControlLayout';
 import PlayPause from '../components/PlayPause';
+import Fullscreen from '../components/Fullscreen';
+import ProgressBar from '../components/ProgressBar';
 
 class Player extends Component {
   state = {
     loading: true,
     paused: false,
+    fullscreen: false,
+    progress: 0,
+    buffer: 0,
   }
 
   onBuffer = ({ isBuffering }) => {
@@ -32,6 +37,18 @@ class Player extends Component {
     this.setState(prevState => ({ paused: !prevState.paused }));
   }
 
+  fullscreen = () => {
+    this.setState(prevState => ({ fullscreen: !prevState.fullscreen }));
+  }
+
+  progressBar = ({ currentTime, playableDuration, seekableDuration }) => {
+    this.setState({
+      progress: (currentTime/seekableDuration)*100,
+      buffer: (playableDuration/seekableDuration)*100
+    });
+    console.log(this.state);
+  }
+
   render() {
     return (
       <Layout
@@ -44,20 +61,25 @@ class Player extends Component {
             onBuffer={this.onBuffer}
             onLoad={this.onLoad}
             paused={this.state.paused}
+            fullscreen={this.state.fullscreen}
+            onFullscreenPlayerDidDismiss={() => this.setState({ fullscreen: false })}
+            onProgress={this.progressBar}
           />
         }
         loader={
           <ActivityIndicator color="white" />
         }
         controls={
-          <ControlLayout>
+          <ControlLayout style={styles.controlContainer}>
             <PlayPause
               onPress={this.playPause}
               paused={this.state.paused}
             />
-            <Text>Progress bar |</Text>
-            <Text>Time left |</Text>
-            <Text>Fullscreen</Text>
+            <ProgressBar
+              progress={this.state.progress}
+              buffer={this.state.buffer}
+            />
+            <Fullscreen onPress={this.fullscreen} />
           </ControlLayout>
         }
       />
@@ -72,6 +94,10 @@ const styles = StyleSheet.create({
     right: 0,
     bottom: 0,
     top: 0,
+  },
+  controlContainer: {
+    position: 'relative',
+    flex: 1,
   }
 })
 
