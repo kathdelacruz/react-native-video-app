@@ -24,7 +24,7 @@ const Progressbar = (props) =>  (
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: 'rgba(255, 255, 255, .8)',
+    backgroundColor: 'rgba(255, 255, 255, .3)',
     position: 'absolute',
     height: 4,
     width: '100%',
@@ -47,7 +47,7 @@ const styles = StyleSheet.create({
     zIndex: 3,
   },
   buffer: {
-    backgroundColor: 'rgba(0, 0, 0, .2)',
+    backgroundColor: 'rgba(255, 255, 255, .5)',
     width: 0,
     height: 4,
     position: 'absolute',

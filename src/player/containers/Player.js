@@ -44,9 +44,8 @@ class Player extends Component {
   progressBar = ({ currentTime, playableDuration, seekableDuration }) => {
     this.setState({
       progress: (currentTime/seekableDuration)*100,
-      buffer: (playableDuration/seekableDuration)*100
+      buffer: (playableDuration/seekableDuration)*100,
     });
-    console.log(this.state);
   }
 
   render() {
