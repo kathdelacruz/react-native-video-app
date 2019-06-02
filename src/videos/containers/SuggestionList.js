@@ -11,7 +11,19 @@ class SuggestionList extends Component {
   keyExtractor = item => item.id.toString();
   renderEmpty = () => <Empty text="No hay sugerencias" />
   itemSeparator = () => <Separator />
-  renderSuggestion = ({ item }) => <Suggestion {...item} />
+  viewMovie = (item) => {
+    this.props.dispatch({
+      type: 'SET_SELECTED_MOVIE',
+      payload: { movie: item }
+    })
+  }
+  renderSuggestion = ({ item }) => (
+    <Suggestion
+      {...item}
+      onPress={() => { this.viewMovie(item) }}
+    />
+  );
+
   render() {
     return (
       <Layout

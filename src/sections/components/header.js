@@ -16,7 +16,7 @@ const Headers = (props) => (
           style={styles.logo}
         />
         <View style={styles.right}>
-          {props.childen}
+          {props.children}
         </View>
       </View>
     </SafeAreaView>
