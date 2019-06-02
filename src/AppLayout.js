@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import API from '../utils/api';
 import Home from './screens/containers/Home';
 import Header from './sections/components/Header';
+import Search from './sections/containers/Search';
 import SuggestionList from './videos/containers/SuggestionList';
 import CategoryList from './videos/containers/CategoryList';
 import Movie from './screens/containers/Movie';
@@ -30,6 +31,7 @@ class AppLayout extends Component {
     return (
       <Home>
         <Header />
+        <Search />
         <CategoryList />
         <SuggestionList />
       </Home>

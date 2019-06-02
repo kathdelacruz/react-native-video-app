@@ -4,6 +4,7 @@ import MovieLayout from '../components/MovieLayout';
 import Player from '../../player/containers/Player';
 import Header from '../../sections/components/Header';
 import Back from '../../sections/components/Back';
+import Details from '../../videos/components/Details';
 
 class Movie extends Component {
   backHome = () => {
@@ -19,9 +20,14 @@ class Movie extends Component {
           <Back onPress={this.backHome} />
         </Header>
         <Player />
+        <Details {...this.props.movie} />
       </MovieLayout>
     );
   }
 }
 
-export default connect ()(Movie);
+const mapStateToProps = (state) => ({
+  movie: state.selectedMovie,
+});
+
+export default connect (mapStateToProps)(Movie);
